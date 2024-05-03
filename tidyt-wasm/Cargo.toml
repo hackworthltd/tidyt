@@ -1,0 +1,31 @@
+[package]
+name = "tidyt-wasm"
+version = "1.0.0"
+edition = "2021"
+license = "MIT"
+repository = "https://github.com/hackworthltd/tidyt"
+description = "Wasm bindings for tidy tree layouts."
+authors = [
+  "Zixuan Chen <remch183@outlook.com>",
+  "Hackworth Ltd <src@hackworthltd.com>",
+]
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+wasm-bindgen = "0.2.92"
+tidyt = { path = "../tidyt" }
+
+[dev-dependencies]
+getrandom = { version = "0.2.14", features = ["js"] }
+rand = "0.8.5"
+wasm-bindgen-test = "0.3.42"
+
+[dependencies.web-sys]
+version = "0.3.69"
+features = [
+  'Window',
+  'Performance',
+  'PerformanceTiming'
+]
