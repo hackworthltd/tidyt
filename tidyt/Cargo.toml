@@ -1,0 +1,32 @@
+[package]
+name = "tidyt"
+version = "1.0.0"
+edition = "2021"
+license = "MIT"
+repository = "https://github.com/hackworthltd/tidyt"
+description = "Tidy tree layouts."
+authors = [
+  "Zixuan Chen <remch183@outlook.com>",
+  "Hackworth Ltd <src@hackworthltd.com>",
+]
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+getrandom = { version = "0.2.14", features = ["js"] }
+num = "0.4.2"
+tinyset = "0.4.15"
+
+[dev-dependencies]
+rand = "0.8.5"
+
+[dev-dependencies.criterion]
+version = "0.5.1"
+# Needed for wasm32 targets
+default-features = false
+
+[[bench]]
+name = "tidyt"
+path = "tests/layout_bench.rs"
+harness = false

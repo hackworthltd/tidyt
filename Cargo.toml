@@ -1,0 +1,21 @@
+[workspace]
+members = [
+  "tidyt",
+  "tidyt-wasm",
+]
+resolver = "2"
+
+[workspace.package]
+version = "1.0.0"
+authors = [
+  "Zixuan Chen <remch183@outlook.com>",
+  "Hackworth Ltd <src@hackworthltd.com>",
+]
+edition = "2021"
+license = "MIT"
+repository = "https://github.com/hackworthltd/tidyt"
+description = "Tidy tree layouts."
+readme = "README.md"
+
+[profile.release]
+opt-level = "s"
