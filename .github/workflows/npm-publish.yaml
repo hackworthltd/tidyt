@@ -35,7 +35,7 @@ jobs:
           role: tidyt-workflow-npmjs
           method: jwt
           secrets: |
-            secret/data/npmjs/@hackworthltd/tidyt-wasm token | NPMJS_TOKEN ;
+            secret/data/npmjs/@hackworthltd/tidyt-wasm token | NPM_TOKEN ;
 
       - name: Install & configure Nix
         uses: cachix/install-nix-action@v26
@@ -63,5 +63,6 @@ jobs:
       - name: Publish `npm` package
         uses: JS-DevTools/npm-publish@v3.1.1
         with:
-          token: ${{ secrets.NPMJS_TOKEN }}
+          access: public
+          token: '${{ env.NPM_TOKEN }}'
           package: result/pkg
