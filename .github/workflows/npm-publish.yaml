@@ -17,8 +17,6 @@ jobs:
 
     permissions:
       contents: read
-      packages: write
-      id-token: write
 
     steps:
       - name: Checkout repo
@@ -26,6 +24,17 @@ jobs:
         with:
           # Required by flakes
           fetch-depth: 0
+
+      - name: Import secrets from Vault
+        uses: hashicorp/vault-action@v3.0.0
+        id: secrets
+        with:
+          url: https://vault.hackworth-corp.com
+          path: "github-actions"
+          role: tidyt-workflow-npmjs
+          method: jwt
+          secrets: |
+            secret/data/npmjs/@hackworthltd/tidyt-wasm token | NPMJS_TOKEN ;
 
       - name: Install & configure Nix
         uses: cachix/install-nix-action@v26
@@ -53,6 +62,5 @@ jobs:
       - name: Publish `npm` package
         uses: JS-DevTools/npm-publish@v3.1.1
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          registry: "https://npm.pkg.github.com"
+          token: ${{ secrets.NPMJS_TOKEN }}
           package: result/pkg
