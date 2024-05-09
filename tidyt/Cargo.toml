@@ -15,7 +15,7 @@ crate-type = ["cdylib", "rlib"]
 
 [dependencies]
 getrandom = { version = "0.2.15", features = ["js"] }
-num = "0.4.2"
+num = "0.4.3"
 tinyset = "0.4.15"
 
 [dev-dependencies]
