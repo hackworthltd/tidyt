@@ -66,3 +66,4 @@ jobs:
           access: public
           token: '${{ env.NPM_TOKEN }}'
           package: result/pkg
+          strategy: upgrade
