@@ -493,9 +493,9 @@ dependencies = [
 
 [[package]]
 name = "tinyset"
-version = "0.4.15"
+version = "0.5.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e2417e47ddd3809ad40222777ac754ee881b3a6401e38cbeeeb3ee1ca5f30aa0"
+checksum = "deb8b0efd7ec26d8a7dec5e87c73962b650f2b06c63b9417eb620b0f54e71784"
 dependencies = [
  "rand",
 ]
